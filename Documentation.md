@@ -35,7 +35,7 @@ subprocess.run(f"ifconfig {interface} up", shell=True) # brings interface back u
 
 ### What is wrong with this code?
 
-In the above example we are providing arguments to the subprocess module directly as a string. This method is not safe because it allows a user to abuse the command being run. If a user inputs the following  when prompted: `;ls;` the following command will be ran in the terminal, `ifconfig;ls;mac_input`. The semi colon is interperted as the end of a command, and anything written after is ran as it's own command. This will allow a user to inject their own commands. 
+In the above example we are providing arguments to the subprocess module directly as a string. This method is not safe because it allows a user to abuse the command being run. If a user inputs the following  when prompted: `;ls;` the following command will be ran in the terminal, `ifconfig;ls;mac_input`. The semi colon is interperted as the end of a command, and anything written after is ran seperately. This is an obvious vulnerability.
 
 ### How can we fix this?
 
